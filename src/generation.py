@@ -24,7 +24,7 @@ def generate_text_simple(model, context, max_new_tokens, max_context_length):
     
     logits = logits[:,-1,:]   # obtain the last token embedding for each seq_len in each batch
     probas = torch.softmax(logits, dim=-1)
-    next_token = torch.argmax(probas, dim=-1, keepdim=True)
+    next_token = torch.argmax(probas, dim=-1, keepdim=True)   # greedy encoding
     context = torch.cat((context, next_token), dim=1)
   
   return context

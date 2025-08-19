@@ -16,25 +16,10 @@ import torch
 
 
 
-
-
-
-
-
 def assign(left, right):
     if left.shape != right.shape:
         raise ValueError(f"Shape mismatch. Left: {left.shape}, Right: {right.shape}")
     return torch.nn.Parameter(right.detach())
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -152,4 +137,6 @@ if __name__ == "__main__":
         urllib.request.urlretrieve(url, output_file)
 
     # Load file
+    print("Loading File:")
     state_dict = load_file(output_file)
+    print("Finished Loading State_dict")
